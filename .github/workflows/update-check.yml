@@ -1,0 +1,48 @@
+# 定时抓取财政部会计司官网，生成 update_status.json 供页面读取
+# 浏览器因同源策略（CORS）无法直接抓取 kjs.mof.gov.cn，
+# 故由 Actions 在服务端完成抓取，产出静态 JSON 供 GitHub Pages 直接读取。
+name: 更新检查
+
+on:
+  schedule:
+    # 每 12 小时一次（UTC 01:17 / 13:17，避开整点高峰）
+    - cron: '17 1,13 * * *'
+  workflow_dispatch:        # 支持手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upd-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: pip install requests
+
+      - name: 抓取财政部官网并生成状态文件
+        run: python scripts/upd_status.py
+
+      - name: 提交状态文件（仅在内容变化时）
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add update_status.json
+          if git diff --cached --quiet; then
+            echo "状态无变化，跳过提交"
+          else
+            git commit -m "chore: 更新检查状态 $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
