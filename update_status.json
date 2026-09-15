@@ -1,13 +1,26 @@
 {
- "checked": "2026-09-14 18:36:30",
+ "checked": "2026-09-15 06:09:33",
  "offline": false,
  "new_std": [],
  "new_interp": [],
- "notices": [],
+ "notices": [
+  {
+   "title": "关于征求《企业会计准则解释第22号（征求意见稿）》意见的函",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997441.htm"
+  },
+  {
+   "title": "关于征求《企业会计准则解释第21号（征求意见稿）》意见的函",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997440.htm"
+  },
+  {
+   "title": "财政部会计司发布《企业会计准则解释第20号》相关实施问答和应用案例",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202607/t20260724_3994229.htm"
+  }
+ ],
  "err": null,
  "local": null,
  "counts": {
-  "zz_listed": 10,
-  "js_listed": 2
+  "zz_listed": 17,
+  "js_listed": 5
  }
 }
