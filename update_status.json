@@ -1,13 +1,18 @@
 {
- "checked": "2026-09-22 06:11:49",
+ "checked": "2026-09-22 17:37:50",
  "offline": false,
  "new_std": [],
  "new_interp": [],
- "notices": [],
+ "notices": [
+  {
+   "title": "关于征求《企业会计准则解释第20号（征求意见稿）》意见的函",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202603/t20260306_3984754.htm"
+  }
+ ],
  "err": null,
  "local": null,
  "counts": {
-  "zz_listed": 9,
-  "js_listed": 0
+  "zz_listed": 18,
+  "js_listed": 1
  }
 }
