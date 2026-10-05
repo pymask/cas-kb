@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-04 17:33:41",
+ "checked": "2026-10-05 07:00:22",
  "offline": false,
  "new_std": [],
  "new_interp": [],
@@ -8,6 +8,6 @@
  "local": null,
  "counts": {
   "zz_listed": 8,
-  "js_listed": 0
+  "js_listed": 2
  }
 }
