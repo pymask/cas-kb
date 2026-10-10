@@ -1,9 +1,22 @@
 {
- "checked": "2026-10-10 07:03:29",
+ "checked": "2026-10-10 17:50:33",
  "offline": false,
  "new_std": [],
  "new_interp": [],
- "notices": [],
- "err": "无法访问财政部站点（网络受限或站点变更），请稍后重试",
- "local": null
+ "notices": [
+  {
+   "title": "关于征求《企业会计准则解释第22号（征求意见稿）》意见的函",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997441.htm"
+  },
+  {
+   "title": "关于征求《企业会计准则解释第21号（征求意见稿）》意见的函",
+   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997440.htm"
+  }
+ ],
+ "err": null,
+ "local": null,
+ "counts": {
+  "zz_listed": 0,
+  "js_listed": 2
+ }
 }
