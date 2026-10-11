@@ -1,26 +1,13 @@
 {
- "checked": "2026-10-11 07:09:55",
+ "checked": "2026-10-11 18:03:19",
  "offline": false,
  "new_std": [],
  "new_interp": [],
- "notices": [
-  {
-   "title": "关于征求《企业会计准则解释第22号（征求意见稿）》意见的函",
-   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997441.htm"
-  },
-  {
-   "title": "关于征求《企业会计准则解释第21号（征求意见稿）》意见的函",
-   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260915_3997440.htm"
-  },
-  {
-   "title": "关于征求《企业会计准则解释第20号（征求意见稿）》意见的函",
-   "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202603/t20260306_3984754.htm"
-  }
- ],
+ "notices": [],
  "err": null,
  "local": null,
  "counts": {
   "zz_listed": 10,
-  "js_listed": 3
+  "js_listed": 1
  }
 }
