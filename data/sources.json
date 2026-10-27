@@ -1,0 +1,1303 @@
+{
+  "keywords": "企业会计准则|会计类|年报|会计监管|会计准则实施",
+  "feeds": [
+    {
+      "name": "准则原文",
+      "kind": "准则原文",
+      "urls": [
+        "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/",
+      "depth": 1,
+      "all_articles": true
+    },
+    {
+      "name": "实施问答",
+      "kind": "实施问答",
+      "urls": [
+        "https://kjs.mof.gov.cn/zt/kjzzss/sswd/"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/",
+      "depth": 2,
+      "all_articles": true
+    },
+    {
+      "name": "应用案例",
+      "kind": "应用案例",
+      "urls": [
+        "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/",
+      "depth": 2,
+      "all_articles": true
+    },
+    {
+      "name": "政策发布",
+      "kind": "政策发布",
+      "urls": [
+        "https://kjs.mof.gov.cn/zhengcefabu/",
+        "https://kjs.mof.gov.cn/zhengcefabu/index_1.htm",
+        "https://kjs.mof.gov.cn/zhengcefabu/index_2.htm"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zhengcefabu/",
+      "depth": 0,
+      "all_articles": false
+    },
+    {
+      "name": "年报指导",
+      "kind": "年报指导",
+      "urls": [
+        "https://kjs.mof.gov.cn/gongzuotongzhi/",
+        "https://kjs.mof.gov.cn/gongzuotongzhi/index_1.htm",
+        "https://kjs.mof.gov.cn/gongzuotongzhi/index_2.htm"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/gongzuotongzhi/",
+      "depth": 0,
+      "all_articles": false
+    },
+    {
+      "name": "政策解读",
+      "kind": "政策解读",
+      "urls": [
+        "https://kjs.mof.gov.cn/zhengcejiedu/",
+        "https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm",
+        "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zhengcejiedu/",
+      "depth": 0,
+      "all_articles": false
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://tfs.mof.gov.cn/caizhengbuling/201407/t20140729_1119494.htm",
+      "title": "企业会计准则——基本准则",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46216.htm",
+      "title": "企业会计准则第1号——存货",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46215.htm",
+      "title": "企业会计准则第2号——长期股权投资",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46214.htm",
+      "title": "企业会计准则第3号——投资性房地产",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46213.htm",
+      "title": "企业会计准则第4号——固定资产",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46212.htm",
+      "title": "企业会计准则第5号——生物资产",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46242.htm",
+      "title": "企业会计准则第6号——无形资产",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201909/t20190911_3384679.htm",
+      "title": "企业会计准则第7号——非货币性资产交换",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46240.htm",
+      "title": "企业会计准则第8号——资产减值",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46239.htm",
+      "title": "企业会计准则第9号——职工薪酬",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46238.htm",
+      "title": "企业会计准则第10号——企业年金基金",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46237.htm",
+      "title": "企业会计准则第11号——股份支付",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201910/t20191028_3410789.htm",
+      "title": "企业会计准则第12号——债务重组",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46235.htm",
+      "title": "企业会计准则第13号——或有事项",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170907_2694006.htm",
+      "title": "企业会计准则第14号——收入",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46232.htm",
+      "title": "企业会计准则第16号——政府补助",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46231.htm",
+      "title": "企业会计准则第17号——借款费用",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46230.htm",
+      "title": "企业会计准则第18号——所得税",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46229.htm",
+      "title": "企业会计准则第19号——外币折算",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46228.htm",
+      "title": "企业会计准则第20号——企业合并",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201910/t20191028_3411190.htm",
+      "title": "企业会计准则第21号——租赁",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170908_2694655.htm",
+      "title": "企业会计准则第22号——金融工具确认和计量（2017年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46226.htm",
+      "title": "企业会计准则第22号——金融工具确认和计量（2006年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170908_2694626.htm",
+      "title": "企业会计准则第23号——金融资产转移（2017年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46225.htm",
+      "title": "企业会计准则第23号——金融资产转移（2006年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170908_2694624.htm",
+      "title": "企业会计准则第24号——套期会计（2017年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46224.htm",
+      "title": "企业会计准则第24号——套期会计（2006年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/202202/t20220224_3790240.htm",
+      "title": "企业会计准则第25号——保险合同（2020年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46223.htm",
+      "title": "企业会计准则第25号——保险合同（2006年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46222.htm",
+      "title": "企业会计准则第26号——再保险合同",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46221.htm",
+      "title": "企业会计准则第27号——石油天然气开采",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46220.htm",
+      "title": "企业会计准则第28号——会计政策、会计估计变更和差错更正",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46219.htm",
+      "title": "企业会计准则第29号——资产负债表日后事项",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46218.htm",
+      "title": "企业会计准则第30号——财务报表列报（2014年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/202608/t20260806_3995008.htm",
+      "title": "企业会计准则第30号——财务报表列报（2026年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46250.htm",
+      "title": "企业会计准则第31号——现金流量表",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46249.htm",
+      "title": "企业会计准则第32号——中期财务报告",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46248.htm",
+      "title": "企业会计准则第33号——合并财务报表",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46247.htm",
+      "title": "企业会计准则第34号——每股收益",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46246.htm",
+      "title": "企业会计准则第35号——分部报告",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46245.htm",
+      "title": "企业会计准则第36号——关联方披露",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170907_2694118.htm",
+      "title": "企业会计准则第37号——金融工具列报（2017年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46244.htm",
+      "title": "企业会计准则第37号——金融工具列报（2014年版）",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46243.htm",
+      "title": "企业会计准则第38号——首次执行企业会计准则",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201512/t20151208_1602631.htm",
+      "title": "企业会计准则第39号——公允价值计量",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201512/t20151208_1602633.htm",
+      "title": "企业会计准则第40号——合营安排",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201512/t20151208_1602637.htm",
+      "title": "企业会计准则第41号——在其他主体中权益的披露",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170907_2694145.htm",
+      "title": "企业会计准则第42号——持有待售的非流动资产、处置组和终止经营",
+      "kind": "准则原文",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/202406/t20240620_3937581.htm",
+      "title": "股份支付准则应用案例——股份支付的修改导致所授予权益工具的公允价值增加",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/202302/t20230228_3869796.htm",
+      "title": "股份支付准则应用案例——企业将以现金结算的股份支付修改为以权益结算的股份支付",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/202105/t20210518_3704086.htm",
+      "title": "股份支付准则应用案例——实际控制人受让股份是否构成新的股份支付",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/202105/t20210518_3704084.htm",
+      "title": "股份支付准则应用案例——授予日的确定",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/202105/t20210518_3704082.htm",
+      "title": "股份支付准则应用案例——授予限制性股票",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202504/t20250417_3962197.htm",
+      "title": "收入准则应用案例——充（供）电业务的收入确认",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202310/t20231031_3914057.htm",
+      "title": "收入准则应用案例——预售商品房的收入确认",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202301/t20230103_3861817.htm",
+      "title": "收入准则应用案例——标准化软件产品的收入确认时点",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202012/t20201211_3634023.htm",
+      "title": "收入准则应用案例——基于客户销售额的可变对价",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202012/t20201211_3634022.htm",
+      "title": "收入准则应用案例——合同变更与可变对价的判断",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/202108/t20210810_3744013.htm",
+      "title": "PPP项目合同社会资本方会计处理应用案例——无形资产模式",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/202108/t20210810_3744014.htm",
+      "title": "PPP项目合同社会资本方会计处理应用案例——金融资产模式",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/202108/t20210810_3744016.htm",
+      "title": "PPP项目合同社会资本方会计处理应用案例——混合模式",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/sdszzyyal/202304/t20230404_3877087.htm",
+      "title": "所得税准则应用案例——单项交易产生的资产和负债相关的递延所得税不适用初始确认豁免的会计处理",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/wbzszzyyal/202607/t20260724_3994265.htm",
+      "title": "货币缺乏可兑换性时即期汇率估计应用案例——采用可兑换性恢复后的首个汇率",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/wbzszzyyal/202607/t20260724_3994267.htm",
+      "title": "货币缺乏可兑换性时即期汇率估计应用案例——采用其他目的下的可观察汇率",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/wbzszzyyal/202607/t20260724_3994264.htm",
+      "title": "货币缺乏可兑换性评估应用案例",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/qyhbzzyyal/202606/t20260618_3991875.htm",
+      "title": "企业合并准则应用案例——补偿性资产的会计处理",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202312/t20231207_3920279.htm",
+      "title": "租赁准则应用案例——卖方兼承租人对包含非取决于指数或比率的可变租赁付款额的售后租回交易的会计处理",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202106/t20210610_3717398.htm",
+      "title": "新冠肺炎疫情相关租金减让会计处理应用案例——租赁准则（财会〔2006〕3号）（经营租赁）",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202106/t20210610_3717396.htm",
+      "title": "新冠肺炎疫情相关租金减让会计处理应用案例——租赁准则（财会〔2006〕3号）（融资租赁）",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202106/t20210610_3717388.htm",
+      "title": "新冠肺炎疫情相关租金减让会计处理应用案例——租赁准则（财会〔2018〕35号）",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202604/t20260430_3988929.htm",
+      "title": "金融工具列报应用案例——指定为以公允价值计量且其变动计入其他综合收益的权益工具投资的披露",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202307/t20230717_3896711.htm",
+      "title": "预期信用损失法应用案例（二）——不以内部评级体系为基础的简化方法",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202307/t20230717_3896707.htm",
+      "title": "预期信用损失法应用案例（一）——以内部评级体系为基础",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202209/t20220913_3839960.htm",
+      "title": "金融负债与权益工具的区分应用案例 ——投资者保护条款",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202209/t20220913_3839959.htm",
+      "title": "金融负债与权益工具的区分应用案例 ——发行人作为合同一方承担的义务",
+      "kind": "应用案例",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/202301/t20230103_3861813.htm",
+      "title": "企业会计准则实施问答·存货准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202606/t20260618_3991863.htm",
+      "title": "企业会计准则实施问答·长期股权投资准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202606/t20260618_3991862.htm",
+      "title": "企业会计准则实施问答·长期股权投资准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202301/t20230103_3861812.htm",
+      "title": "企业会计准则实施问答·长期股权投资准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202301/t20230103_3861811.htm",
+      "title": "企业会计准则实施问答·长期股权投资准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202111/t20211102_3762836.htm",
+      "title": "企业会计准则实施问答·长期股权投资准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cwbblbzzsswd/202504/t20250417_3962195.htm",
+      "title": "企业会计准则实施问答·财务报表列报准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/202504/t20250417_3962188.htm",
+      "title": "企业会计准则实施问答·固定资产准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/202111/t20211102_3762834.htm",
+      "title": "企业会计准则实施问答·固定资产准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gfzzsswd/202307/t20230717_3896761.htm",
+      "title": "企业会计准则实施问答·股份支付准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gfzzsswd/202103/t20210302_3664183.htm",
+      "title": "企业会计准则实施问答·股份支付准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/hbcwbbzzsswd/202606/t20260618_3991868.htm",
+      "title": "企业会计准则实施问答·合并财务报表准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/hbcwbbzzsswd/202206/t20220621_3819698.htm",
+      "title": "企业会计准则实施问答·合并财务报表准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jkwd/202606/t20260618_3991866.htm",
+      "title": "企业会计准则实施问答·借款费用准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jkwd/202606/t20260618_3991865.htm",
+      "title": "企业会计准则实施问答·借款费用准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jkwd/202012/t20201211_3634037.htm",
+      "title": "企业会计准则实施问答·借款费用准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994210.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994209.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994208.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994207.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202604/t20260430_3988924.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202604/t20260430_3988923.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202507/t20250703_3967195.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202307/t20230717_3896759.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202307/t20230717_3896716.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892064.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892063.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892061.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892060.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691992.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691872.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691871.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691870.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691869.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691868.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691867.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691866.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664223.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664220.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664218.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664216.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664215.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664213.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664211.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664210.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664208.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664205.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202103/t20210302_3664202.htm",
+      "title": "企业会计准则实施问答·金融工具准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/kjzckjgjbgzzsswd/202504/t20250417_3962193.htm",
+      "title": "企业会计准则实施问答·会计政策、会计估计变更和差错更正准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744017.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744018.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744019.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744020.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744021.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744022.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744024.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744025.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744028.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744029.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744030.htm",
+      "title": "企业会计准则实施问答·PPP项目会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/202606/t20260618_3991869.htm",
+      "title": "企业会计准则实施问答·其他相关问答",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/202012/t20201211_3634041.htm",
+      "title": "企业会计准则实施问答·其他相关问答",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/202012/t20201211_3634040.htm",
+      "title": "企业会计准则实施问答·其他相关问答",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/202012/t20201211_3634038.htm",
+      "title": "企业会计准则实施问答·其他相关问答",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/202606/t20260618_3991867.htm",
+      "title": "企业会计准则实施问答·企业合并准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/202111/t20211102_3762826.htm",
+      "title": "企业会计准则实施问答·企业合并准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sczxzzsswd/202111/t20211102_3762840.htm",
+      "title": "企业会计准则实施问答·持有待售准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sjzykjclsswd/202410/t20241030_3946594.htm",
+      "title": "企业会计准则实施问答·数据资源会计处理",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/202111/t20211102_3762833.htm",
+      "title": "企业会计准则实施问答·收入准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/202012/t20201211_3634036.htm",
+      "title": "企业会计准则实施问答·收入准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/202012/t20201211_3634035.htm",
+      "title": "企业会计准则实施问答·收入准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/202012/t20201211_3634031.htm",
+      "title": "企业会计准则实施问答·收入准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/202012/t20201211_3634029.htm",
+      "title": "企业会计准则实施问答·收入准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/202607/t20260723_3994211.htm",
+      "title": "企业会计准则实施问答·外币折算准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/202103/t20210302_3664191.htm",
+      "title": "企业会计准则实施问答·外币折算准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wxzczzsswd/202504/t20250417_3962191.htm",
+      "title": "企业会计准则实施问答·无形资产准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202604/t20260430_3988927.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202604/t20260430_3988926.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202604/t20260430_3988925.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202501/t20250110_3951460.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202501/t20250110_3951457.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202303/t20230313_3872126.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202303/t20230313_3872127.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202303/t20230313_3872125.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/202303/t20230313_3872123.htm",
+      "title": "企业会计准则实施问答·保险合同准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xjllbzzsswd/202206/t20220621_3819699.htm",
+      "title": "企业会计准则实施问答·现金流量表准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xqykjzzsswd/202206/t20220621_3819702.htm",
+      "title": "企业会计准则实施问答·新租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xqykjzzsswd/202111/t20211102_3762844.htm",
+      "title": "企业会计准则实施问答·新租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/202307/t20230710_3895086.htm",
+      "title": "企业会计准则实施问答·资产减值准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/202307/t20230710_3895087.htm",
+      "title": "企业会计准则实施问答·资产减值准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zfbzzzsswd/202606/t20260618_3991864.htm",
+      "title": "企业会计准则实施问答·政府补助准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zfbzzzsswd/202206/t20220621_3819697.htm",
+      "title": "企业会计准则实施问答·政府补助准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202205/t20220527_3813704.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202106/t20210610_3717408.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202104/t20210425_3691864.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202104/t20210425_3691863.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202104/t20210425_3691861.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202103/t20210302_3664201.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202103/t20210302_3664197.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202103/t20210302_3664195.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/202103/t20210302_3664192.htm",
+      "title": "企业会计准则实施问答·租赁准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/202104/t20210425_3691695.htm",
+      "title": "企业会计准则实施问答·债务重组准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/202103/t20210302_3664190.htm",
+      "title": "企业会计准则实施问答·债务重组准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/202103/t20210302_3664187.htm",
+      "title": "企业会计准则实施问答·债务重组准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/202103/t20210302_3664186.htm",
+      "title": "企业会计准则实施问答·债务重组准则",
+      "kind": "实施问答",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202606/t20260615_3991686.htm",
+      "title": "企业会计准则解释第20号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202512/t20251218_3979556.htm",
+      "title": "企业会计准则解释第19号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202412/t20241223_3950344.htm",
+      "title": "企业会计准则解释第18号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202311/t20231109_3915491.htm",
+      "title": "企业会计准则解释第17号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202212/t20221212_3857395.htm",
+      "title": "企业会计准则解释第16号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202112/t20211231_3779983.htm",
+      "title": "企业会计准则解释第15号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/202102/t20210202_3653110.htm",
+      "title": "企业会计准则解释第14号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201912/t20191213_3441493.htm",
+      "title": "企业会计准则解释第13号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628439.htm",
+      "title": "企业会计准则解释第12号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628437.htm",
+      "title": "企业会计准则解释第11号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628435.htm",
+      "title": "企业会计准则解释第10号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628433.htm",
+      "title": "企业会计准则解释第9号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201601/t20160104_1643346.htm",
+      "title": "企业会计准则解释第8号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201511/t20151113_1559056.htm",
+      "title": "企业会计准则解释第7号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201401/t20140123_1038629.htm",
+      "title": "企业会计准则解释第6号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201211/t20121122_701308.htm",
+      "title": "企业会计准则解释第5号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201008/t20100809_332092.htm",
+      "title": "企业会计准则解释第4号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/200906/t20090625_172281.htm",
+      "title": "企业会计准则解释第3号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/200809/t20080912_74645.htm",
+      "title": "企业会计准则解释第2号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/200805/t20080522_33804.htm",
+      "title": "企业会计准则解释第1号",
+      "kind": "准则解释",
+      "publisher": "财政部"
+    },
+    {
+      "title": "2024年度企业会计准则实施情况分析报告",
+      "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202507/t20250723_3968364.htm",
+      "kind": "实施分析",
+      "publisher": "财政部"
+    },
+    {
+      "title": "2024年度准则实施情况分析报告答记者问",
+      "url": "https://kjs.mof.gov.cn/zhengcejiedu/202507/t20250723_3968366.htm",
+      "kind": "政策解读",
+      "publisher": "财政部"
+    },
+    {
+      "title": "监管规则适用指引——会计类第5号",
+      "url": "https://www.csrc.gov.cn/csrc/c100038/c7572064/content.shtml",
+      "kind": "监管参考",
+      "publisher": "证监会"
+    },
+    {
+      "title": "上市公司2024年年度财务报告会计监管报告",
+      "url": "https://www.csrc.gov.cn/csrc/c100028/c7577643/content.shtml",
+      "kind": "监管参考",
+      "publisher": "证监会"
+    },
+    {
+      "title": "财政部发布企业会计准则应用指南",
+      "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/200805/t20080519_24574.htm",
+      "kind": "应用指南",
+      "publisher": "财政部"
+    }
+  ]
+}

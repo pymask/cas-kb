@@ -1,197 +1,196 @@
-# -*- coding: utf-8 -*-
-"""生成 update_status.json：供网页端「检查更新」直接读取。
+"""Official-source ingestion with immutable versions and conservative failure semantics."""
+import argparse, concurrent.futures, hashlib, io, json, re, shutil, subprocess, tempfile, time, zipfile
+import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import urljoin, urlsplit, urlunsplit
+import requests
+from bs4 import BeautifulSoup
+ROOT=Path(__file__).resolve().parents[1]
+HOSTS={'kjs.mof.gov.cn','www.mof.gov.cn','tfs.mof.gov.cn','www.csrc.gov.cn'}
+SELECTORS='.TRS_Editor, .my_doccontent, .Custom_UnionStyle, #ContentRegion, .content-detail, .detail-news'
 
-与 check_update.py 的区别：
-  - 本脚本面向 GitHub Actions 运行（服务端抓取），产出结构化 JSON
-  - 网页端 fetch('update_status.json') 即可展示，绕开浏览器 CORS 限制
+def canonical(url):
+    p=urlsplit(url)
+    if p.scheme not in ('http','https') or p.hostname not in HOSTS or p.username or p.port not in (None,80,443):
+        raise ValueError('非已登记官方来源')
+    return urlunsplit(('https',p.netloc,p.path,p.query,''))
 
-用法：
-    python3 upd_status.py                # 联网抓取（GitHub Actions）
-    python3 upd_status.py --offline      # 不联网，仅输出本地快照信息
+def fetch_once(url):
+    url=canonical(url)
+    for _ in range(5):
+        r=requests.get(url,timeout=(8,25),headers={'User-Agent':'CAS-KB/2.0 official-source research'},allow_redirects=False)
+        if r.is_redirect:
+            url=canonical(urljoin(url,r.headers['Location']));continue
+        r.raise_for_status()
+        if len(r.content)>50_000_000:raise ValueError('文件超过50MB，需人工处理')
+        return r,url
+    raise ValueError('重定向次数过多')
 
-产出：
-    /workspace/cas-kb-site/update_status.json
-"""
-import re, os, json, sys, time
+def fetch(url):
+    for attempt in range(3):
+        try:return fetch_once(url)
+        except (requests.Timeout, requests.ConnectionError):
+            if attempt==2:raise
+            time.sleep(attempt+1)
 
-D = os.path.dirname(os.path.abspath(__file__))
-# 输出路径优先级：环境变量 > 仓库根（Actions 场景）> 本地站点目录
-_env = os.environ.get("UPD_OUT")
-if _env:
-    OUT = _env
-elif os.path.isdir("/workspace/cas-kb-site"):
-    OUT = os.path.join(os.path.dirname(D), "update_status.json") \
-        if os.path.basename(D) == "scripts" else "/workspace/cas-kb-site/update_status.json"
-else:
-    OUT = os.path.join(os.path.dirname(D), "update_status.json")
-STATE = os.path.join(D, "build", "state.json")
+def word_text(data,ext):
+    if ext=='.docx':
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            info=z.getinfo('word/document.xml')
+            if info.file_size>50_000_000:raise ValueError('Word XML过大')
+            root=ET.fromstring(z.read(info))
+        ns='{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
+        return '\n'.join(''.join(p.itertext()) for p in root.iter(ns+'p'))
+    with tempfile.TemporaryDirectory() as folder:
+        path=Path(folder)/'source.doc';path.write_bytes(data)
+        if shutil.which('antiword'):cmd=['antiword','-m','UTF-8.txt',str(path)]
+        elif shutil.which('textutil'):cmd=['textutil','-convert','txt','-stdout',str(path)]
+        else:raise ValueError('需要安装antiword解析旧Word附件')
+        return subprocess.run(cmd,check=True,capture_output=True,timeout=40).stdout.decode('utf-8').strip()
 
-BASE = "https://kjs.mof.gov.cn/"
-HDR = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                  "(KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-    "Referer": "https://kjs.mof.gov.cn/gongzuotongzhi/",
-}
+def html(r):
+    r.encoding='utf-8' if b'charset=gb' not in r.content[:3000].lower() else 'gb18030'
+    return BeautifulSoup(r.text,'html.parser')
 
-# 已收录基准（与 check_update.py 保持一致）
-KNOWN_ZZ = {
-    "7": "201909/t20190911_3384679", "12": "201910/t20191028_3410789",
-    "14": "201709/t20170907_2694006", "16": "200806/t20080618_46232",
-    "20": "200806/t20080618_46228", "21": "201910/t20191028_3411190",
-    "22": "201709/t20170908_2694655", "23": "201709/t20170908_2694626",
-    "24": "201709/t20170908_2694624", "30": "202608/t20260806_3995008",
-    "33": "200806/t20080618_46248", "37": "201709/t20170907_2694118",
-}
-KNOWN_JS = {
-    "16": "202212/t20221212_3857395", "17": "202311/t20231109_3915491",
-    "18": "202412/t20241223_3950344", "19": "202512/t20251218_3979556",
-    "20": "202606/t20260615_3991686",
-}
-
-
-def fetch(url, retries=3):
-    """抓取页面，失败返回空串（Actions 里不阻塞整体流程）"""
-    try:
-        import requests
-    except ImportError:
-        print("  ! 缺少 requests，跳过联网")
-        return ""
-    for a in range(retries):
-        try:
-            r = requests.get(url, headers=HDR, timeout=30)
-            r.encoding = r.apparent_encoding or "utf-8"
-            return r.text
-        except Exception as e:
-            print(f"  retry {a+1}: {type(e).__name__}")
-            time.sleep(2)
-    return ""
-
-
-def list_links(html_text):
-    out = []
-    for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', html_text, re.S):
-        href, txt = m.group(1), re.sub(r"<[^>]+>", "", m.group(2))
-        txt = txt.replace("&nbsp;", " ").strip()
-        if txt and ("t20" in href) and href.endswith(".htm"):
-            out.append((txt, href))
+def links(soup,url):
+    out={}
+    for a in soup.select('a[href]'):
+        try:u=canonical(urljoin(url,a['href']))
+        except ValueError:continue
+        out[u]=a.get_text(' ',strip=True)
     return out
 
+def extract(soup, allow_short=False):
+    node=soup.select_one(SELECTORS)
+    if node is None:raise ValueError('未识别正文区域，保留上一版本')
+    for n in node.select('script,style,iframe'):n.decompose()
+    for n in node.find_all(['p','div','li','tr','h1','h2','h3','br']):n.insert_after('\n')
+    text='\n'.join(re.sub(r'[ \t\xa0\u3000]+',' ',s).strip() for s in node.get_text('').splitlines() if s.strip())
+    if (len(text)<40 and not allow_short) or '\ufffd' in text:raise ValueError('正文过短或编码异常')
+    return text
 
-def norm(href):
-    m = re.search(r"(20\d{2}\d{2}/t\d{8}_\d+)", href)
-    return m.group(1) if m else href
+def classify(title, fallback):
+    if '征求意见' in title:return '征求意见稿'
+    if title.startswith(('问：','问:')):return '实施问答'
+    if fallback in ('实施问答','应用案例'):return fallback
+    for key,kind in [('实施问答','实施问答'),('应用案例','应用案例'),('应用指南','应用指南'),('解释第','准则解释'),('分析报告','实施分析'),('监管','监管参考'),('年报','年报指导'),('答记者问','政策解读')]:
+        if key in title:return kind
+    return fallback
 
+def document(item):
+    r,url=fetch(item['url']);soup=html(r)
+    attachment_links={u:t for u,t in links(soup,url).items() if re.search(r'\.(pdf|docx?|xlsx?)(?:\?|$)',u,re.I)}
+    text=extract(soup,allow_short=bool(attachment_links))
+    title=soup.find('meta',attrs={'name':'ArticleTitle'})
+    title=title.get('content') if title else item.get('title')
+    title=title or (soup.title.get_text(strip=True) if soup.title else url)
+    attachments=[]
+    for u,label in attachment_links.items():
+        if not re.search(r'\.(pdf|docx?|xlsx?)(?:\?|$)',u,re.I):continue
+        a={'url':u,'title':label or u.split('/')[-1],'status':'pending'}
+        try:
+            ar,au=fetch(u);a['sha256']=hashlib.sha256(ar.content).hexdigest()
+            if '.pdf' in urlsplit(au).path.lower():
+                from pypdf import PdfReader
+                at='\n'.join(p.extract_text() or '' for p in PdfReader(io.BytesIO(ar.content)).pages)
+                if len(at.strip())<40:raise ValueError('扫描PDF需OCR')
+                a['text']=at.strip();a['status']='extracted'
+            elif re.search(r'\.docx?$',urlsplit(au).path,re.I):
+                at=word_text(ar.content,Path(urlsplit(au).path).suffix.lower())
+                if len(at.strip())<40:raise ValueError('Word正文过短')
+                a['text']=at;a['status']='extracted'
+            else:a['error']='附件格式需人工提取，正文尚不包含该附件全文'
+        except Exception as e:a['error']=str(e)[:240]
+        attachments.append(a)
+    if not text.strip():text='此发布页正文见附件。'
+    kind=classify(title,item.get('kind','官方资料'))
+    return {'url':url,'title':title,'kind':kind,'publisher':item.get('publisher','财政部'),
+      'text':text,'attachments':attachments,'status':'征求意见，不作为现行依据' if kind=='征求意见稿' else '官方原文快照；效力与适用范围请核对原文',
+      'published': (soup.find('meta',attrs={'name':'PubDate'}) or {}).get('content','')}
 
-def abs_url(rel, col):
-    """把相对链接补全为官网绝对地址"""
-    if rel.startswith("http"):
-        return rel
-    return BASE + col + "/" + norm(rel) + ".htm"
+def digest(doc):
+    return hashlib.sha256(json.dumps(doc,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
 
+def diff(old,new):
+    from difflib import SequenceMatcher
+    def body(d):return (d.get('text','')+'\n'+'\n'.join(a.get('text','') for a in d.get('attachments',[]))).splitlines()
+    a,b=body(old),body(new);changes=[]
+    for tag,i,j,k,l in SequenceMatcher(None,a,b,autojunk=False).get_opcodes():
+        if tag!='equal':changes.append({'type':tag,'before':a[i:j],'after':b[k:l]})
+    return changes
 
-def check_zhunze():
-    found = {}
-    for page in range(1, 5):
-        u = (BASE + f"zt/kjzzss/kuaijizhunzeshishi/index_{page}.htm") if page > 1 \
-            else (BASE + "zt/kjzzss/kuaijizhunzeshishi/")
-        h = fetch(u)
-        if not h:
-            continue
-        for txt, href in list_links(h):
-            if "企业会计准则第" in txt and "——" in txt:
-                found[norm(href)] = txt
-    return found
+def save(path,obj):
+    path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.tmp');temp.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
 
+def ingest(root,docs,now):
+    folder=root/'data';p=folder/'library.json';library=json.loads(p.read_text()) if p.exists() else []
+    lp=folder/'changes.json';history=json.loads(lp.read_text()) if lp.exists() else []
+    current={x['id']:x for x in library};events=[]
+    for doc in sorted(docs,key=lambda x:x['url']):
+        ident=hashlib.sha256(doc['url'].encode()).hexdigest()[:20];sha=digest(doc);old=current.get(ident)
+        if old and old['hash']==sha:continue
+        previous=json.loads((root/old['snapshot']).read_text()) if old else {}
+        snapshot=f'data/versions/{ident}/{sha}.json';save(root/snapshot,doc)
+        event={'id':ident+'-'+sha[:16]+'-'+now,'document_id':ident,'title':doc['title'],'url':doc['url'],'at':now,'type':'changed' if old else 'added','before':old['snapshot'] if old else None,'after':snapshot,'changes':diff(previous,doc),'analysis':'机器采集文本差异，可能包含解析器修订，不一定是官方政策变化；不自动判断准则废止、生效或会计处理结论。'}
+        events.append(event)
+        current[ident]={**doc,'id':ident,'hash':sha,'snapshot':snapshot,'updated_at':now}
+    save(p,sorted(current.values(),key=lambda x:(x['updated_at'],x['id']),reverse=True));save(lp,events+history)
+    return events,len(current)
 
-def check_jieshi():
-    found = {}
-    for col in ["zhengcefabu", "gongzuotongzhi"]:
-        for page in range(1, 4):
-            u = (BASE + f"{col}/index_{page}.htm") if page > 1 else (BASE + f"{col}/")
-            h = fetch(u)
-            if not h:
-                continue
-            for txt, href in list_links(h):
-                if "解释" in txt and "企业会计准则" in txt:
-                    found[norm(href)] = txt
-    return found
-
+def discover(config,max_pages):
+    queue=[(u,s,0) for s in config['feeds'] for u in s['urls']];visited=set();found={};errors=[];reports=[]
+    while queue and len(visited)<max_pages:
+        url,source,depth=queue.pop(0)
+        if url in visited:continue
+        visited.add(url)
+        try:
+            r,actual=fetch(url);ls=links(html(r),actual);count=0
+            for u,title in ls.items():
+                if re.search(r'/t\d{8}_\d+\.htm',u) and (source.get('all_articles') or re.search(config['keywords'],title)):
+                    found[u]={'url':u,'title':title,'kind':source['kind'],'publisher':'财政部'};count+=1
+                elif depth<source.get('depth',0) and u.startswith(source['prefix']) and (u.endswith('/') or re.search(r'/index(?:_\d+)?\.htm$',u)) and u not in visited:
+                    queue.append((u,source,depth+1))
+            if not count and not any(u.startswith(source['prefix']) and u.endswith('/') for u in ls):raise ValueError('栏目结构异常或无可识别条目')
+            reports.append({'url':url,'ok':True,'articles':count})
+        except Exception as e:errors.append({'url':url,'error':str(e)[:240]});reports.append({'url':url,'ok':False})
+    if queue:errors.append({'url':'discovery','error':'达到栏目抓取上限；未遍历栏目不声明已检查'})
+    return found,errors,reports
 
 def main():
-    offline = "--offline" in sys.argv
-    snap = {
-        "checked": time.strftime("%Y-%m-%d %H:%M:%S"),
-        "offline": offline,
-        "new_std": [],
-        "new_interp": [],
-        "notices": [],
-        "err": None,
-    }
-
-    # 本地快照信息（供页面显示规模）
-    try:
-        recs = json.load(open(os.path.join(D, "build", "records.json")))
-        from collections import Counter
-        kc = Counter(r["kind"] for r in recs)
-        snap["local"] = {
-            "total": len(recs),
-            "std": kc.get("准则原文", 0),
-            "interp": kc.get("准则解释", 0),
-            "qa": kc.get("实施问答", 0),
-            "case": kc.get("应用案例", 0),
-        }
-    except Exception as e:
-        snap["local"] = None
-
-    if offline:
-        write(snap)
-        return
-
-    print("抓取准则栏目…")
-    zz = check_zhunze()
-    print("抓取解释栏目…")
-    js = check_jieshi()
-
-    if not zz and not js:
-        snap["err"] = "无法访问财政部站点（网络受限或站点变更），请稍后重试"
-        write(snap)
-        return
-
-    def recent(k):
-        m = re.match(r"(\d{4})", k)
-        return (not m) or int(m.group(1)) >= 2024
-
-    known_zz = set(KNOWN_ZZ.values())
-    known_js = set(KNOWN_JS.values())
-
-    for k, v in sorted(zz.items(), reverse=True):
-        if k not in known_zz and recent(k):
-            snap["new_std"].append({
-                "title": v, "url": BASE + "zt/kjzzss/kuaijizhunzeshishi/" + k + ".htm"
-            })
-
-    for k, v in sorted(js.items(), reverse=True):
-        if k in known_js or not recent(k):
-            continue
-        item = {"title": v, "url": abs_url(k, "gongzuotongzhi")}
-        if "征求意见" in v:
-            snap["notices"].append(item)
-        elif "解释第" in v and "通知" in v:
-            snap["new_interp"].append(item)
-        else:
-            snap["notices"].append(item)
-
-    snap["counts"] = {"zz_listed": len(zz), "js_listed": len(js)}
-    write(snap)
-
-
-def write(snap):
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as f:
-        json.dump(snap, f, ensure_ascii=False, indent=1)
-    print("已写入:", OUT)
-    print(json.dumps({k: snap[k] for k in snap if k != "local"}, ensure_ascii=False)[:400])
-
-
-if __name__ == "__main__":
-    main()
+    ap=argparse.ArgumentParser();ap.add_argument('--offline',action='store_true');ap.add_argument('--seeds-only',action='store_true');ap.add_argument('--max-pages',type=int,default=80);ap.add_argument('--max-docs',type=int,default=500);args=ap.parse_args()
+    if args.offline:
+        print('离线校验：不改变线上检查时间或状态');return
+    now=datetime.now(timezone.utc).isoformat(timespec='seconds');config=json.loads((ROOT/'data/sources.json').read_text());found={};errors=[];reports=[]
+    if not args.seeds_only:found,errors,reports=discover(config,args.max_pages)
+    for item in config['documents']:found[canonical(item['url'])]=item
+    # Previously collected sources are rechecked even after disappearing from feeds.
+    lib=ROOT/'data/library.json'
+    if lib.exists():
+        for item in json.loads(lib.read_text()):found.setdefault(item['url'],item)
+    items=sorted(found.values(),key=lambda x:x['url'])
+    if len(items)>args.max_docs:errors.append({'url':'documents','error':'达到正文抓取上限，本次检查不完整'})
+    docs=[]
+    existing={x['url']:x for x in json.loads(lib.read_text())} if lib.exists() else {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        futures={pool.submit(document,x):x for x in items[:args.max_docs]}
+        for f in concurrent.futures.as_completed(futures):
+            try:
+                d=f.result()
+                failed=any(a['status']!='extracted' for a in d['attachments'])
+                if not (failed and d['url'] in existing):docs.append(d)
+                for a in d['attachments']:
+                    if a['status']!='extracted':errors.append({'url':a['url'],'error':a.get('error','附件待提取')})
+            except Exception as e:errors.append({'url':futures[f]['url'],'error':str(e)[:240]})
+    events,total=ingest(ROOT,docs,now)
+    previous=json.loads((ROOT/'update_status.json').read_text())
+    complete=not errors and not args.seeds_only
+    status={'schema':2,'checked':now,'complete':complete,'offline':False,'last_success':now if complete else previous.get('last_success'),
+      'scope':'登记栏目及历史已采集来源；不代表财政部全部历史资料','sources':reports,'errors':errors,'err':None if complete else '本次检查不完整，请查看来源明细；保留上次成功正文。',
+      'counts':{'checked_documents':len(docs),'discovered':len(items),'library':total,'added':sum(e['type']=='added' for e in events),'changed':sum(e['type']=='changed' for e in events)},'run_url':__import__('os').environ.get('RUN_URL'),'new_std':[],'new_interp':[],'notices':[]}
+    save(ROOT/'update_status.json',status)
+    cp=ROOT/'data/checks.json';checks=json.loads(cp.read_text()) if cp.exists() else []
+    save(cp,([status]+checks)[:180])
+    print(json.dumps(status['counts'],ensure_ascii=False));print('errors',len(errors))
+    if errors:raise SystemExit(2)
+if __name__=='__main__':main()
