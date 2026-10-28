@@ -1,6 +1,259 @@
 [
   {
     "schema": 2,
+    "checked": "2026-10-28T06:50:32+00:00",
+    "complete": true,
+    "offline": false,
+    "last_success": "2026-10-28T06:50:32+00:00",
+    "scope": "登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖",
+    "sources": [
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/",
+        "ok": true,
+        "articles": 64
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/",
+        "ok": true,
+        "articles": 27
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/index_1.htm",
+        "ok": true,
+        "articles": 0
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/index_2.htm",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/index_1.htm",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/index_2.htm",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm",
+        "ok": true,
+        "articles": 0
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://www.csrc.gov.cn/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/",
+        "ok": true,
+        "articles": 5
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wxzczzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sjzykjclsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gfzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/",
+        "ok": true,
+        "articles": 5
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zfbzzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jkwd/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/",
+        "ok": true,
+        "articles": 9
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/",
+        "ok": true,
+        "articles": 9
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/kjzckjgjbgzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cwbblbzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xjllbzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/hbcwbbzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sczxzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xqykjzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/",
+        "ok": true,
+        "articles": 7
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/sdszzyyal/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/wbzszzyyal/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/qyhbzzyyal/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/",
+        "ok": true,
+        "articles": 9
+      }
+    ],
+    "errors": [],
+    "err": null,
+    "counts": {
+      "checked_documents": 230,
+      "discovered": 230,
+      "library": 230,
+      "added": 0,
+      "changed": 0
+    },
+    "run_url": "https://github.com/pymask/cas-kb/actions/runs/40646268525",
+    "new_std": [],
+    "new_interp": [],
+    "notices": []
+  },
+  {
+    "schema": 2,
     "checked": "2026-10-28T04:28:38+00:00",
     "complete": true,
     "offline": false,
