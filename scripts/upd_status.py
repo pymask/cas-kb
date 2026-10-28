@@ -28,11 +28,15 @@ def fetch_once(url):
     raise ValueError('重定向次数过多')
 
 def fetch(url):
-    for attempt in range(3):
+    for attempt in range(4):
         try:return fetch_once(url)
-        except (requests.Timeout, requests.ConnectionError):
-            if attempt==2:raise
-            time.sleep(attempt+1)
+        except (requests.Timeout, requests.ConnectionError, requests.HTTPError) as exc:
+            # Do not retry ordinary client errors such as missing documents.
+            if isinstance(exc, requests.HTTPError):
+                status = exc.response.status_code if exc.response is not None else 0
+                if status != 429 and not 500 <= status <= 599:raise
+            if attempt==3:raise
+            time.sleep(2 * (attempt+1))
 
 def word_text(data,ext):
     if ext=='.docx':
