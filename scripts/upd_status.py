@@ -145,13 +145,15 @@ def discover(config,max_pages):
         if url in visited:continue
         visited.add(url)
         try:
-            r,actual=fetch(url);ls=links(html(r),actual);count=0
+            r,actual=fetch(url);ls=links(html(r),actual);count=0;recognized=0
             for u,title in ls.items():
-                if re.search(r'/t\d{8}_\d+\.htm',u) and (source.get('all_articles') or re.search(config['keywords'],title)):
-                    found[u]={'url':u,'title':title,'kind':source['kind'],'publisher':'财政部'};count+=1
+                if re.search(source.get('article_pattern',r'/t\d{8}_\d+\.htm'),u):
+                    recognized+=1
+                    if source.get('all_articles') or re.search(source.get('keywords',config['keywords']),title):
+                        found[u]={'url':u,'title':title,'kind':source['kind'],'publisher':source.get('publisher','财政部')};count+=1
                 elif depth<source.get('depth',0) and u.startswith(source['prefix']) and (u.endswith('/') or re.search(r'/index(?:_\d+)?\.htm$',u)) and u not in visited:
                     queue.append((u,source,depth+1))
-            if not count and not any(u.startswith(source['prefix']) and u.endswith('/') for u in ls):raise ValueError('栏目结构异常或无可识别条目')
+            if not recognized and not any(u.startswith(source['prefix']) and u.endswith('/') for u in ls):raise ValueError('栏目结构异常或无可识别条目')
             reports.append({'url':url,'ok':True,'articles':count})
         except Exception as e:errors.append({'url':url,'error':str(e)[:240]});reports.append({'url':url,'ok':False})
     if queue:errors.append({'url':'discovery','error':'达到栏目抓取上限；未遍历栏目不声明已检查'})
@@ -186,7 +188,7 @@ def main():
     previous=json.loads((ROOT/'update_status.json').read_text())
     complete=not errors and not args.seeds_only
     status={'schema':2,'checked':now,'complete':complete,'offline':False,'last_success':now if complete else previous.get('last_success'),
-      'scope':'登记栏目及历史已采集来源；不代表财政部全部历史资料','sources':reports,'errors':errors,'err':None if complete else '本次检查不完整，请查看来源明细；保留上次成功正文。',
+      'scope':'登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖','sources':reports,'errors':errors,'err':None if complete else '本次检查不完整，请查看来源明细；保留上次成功正文。',
       'counts':{'checked_documents':len(docs),'discovered':len(items),'library':total,'added':sum(e['type']=='added' for e in events),'changed':sum(e['type']=='changed' for e in events)},'run_url':__import__('os').environ.get('RUN_URL'),'new_std':[],'new_interp':[],'notices':[]}
     save(ROOT/'update_status.json',status)
     cp=ROOT/'data/checks.json';checks=json.loads(cp.read_text()) if cp.exists() else []

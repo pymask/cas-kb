@@ -1,10 +1,10 @@
 {
   "schema": 2,
-  "checked": "2026-10-27T15:43:28+00:00",
+  "checked": "2026-10-28T04:07:29+00:00",
   "complete": true,
   "offline": false,
-  "last_success": "2026-10-27T15:43:28+00:00",
-  "scope": "登记栏目及历史已采集来源；不代表财政部全部历史资料",
+  "last_success": "2026-10-28T04:07:29+00:00",
+  "scope": "登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖",
   "sources": [
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/",
@@ -65,6 +65,16 @@
       "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm",
       "ok": true,
       "articles": 0
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/",
+      "ok": true,
+      "articles": 10
+    },
+    {
+      "url": "https://www.csrc.gov.cn/",
+      "ok": true,
+      "articles": 1
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/",
@@ -230,11 +240,11 @@
   "errors": [],
   "err": null,
   "counts": {
-    "checked_documents": 226,
-    "discovered": 226,
-    "library": 226,
-    "added": 0,
-    "changed": 79
+    "checked_documents": 230,
+    "discovered": 230,
+    "library": 230,
+    "added": 4,
+    "changed": 0
   },
   "run_url": null,
   "new_std": [],

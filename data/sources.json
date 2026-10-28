@@ -66,6 +66,29 @@
       "prefix": "https://kjs.mof.gov.cn/zhengcejiedu/",
       "depth": 0,
       "all_articles": false
+    },
+    {
+      "name": "企业会计准则解释",
+      "kind": "准则解释",
+      "urls": [
+        "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/"
+      ],
+      "prefix": "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/",
+      "depth": 0,
+      "all_articles": true
+    },
+    {
+      "name": "证监会首页重点链接（有限发现）",
+      "kind": "监管参考",
+      "publisher": "证监会",
+      "urls": [
+        "https://www.csrc.gov.cn/"
+      ],
+      "prefix": "https://www.csrc.gov.cn/",
+      "depth": 0,
+      "all_articles": false,
+      "article_pattern": "/csrc/c[0-9]+/c[0-9]+/content[.]shtml",
+      "keywords": "监管规则适用指引.{0,10}会计类|年度财务报告会计监管报告|企业会计准则"
     }
   ],
   "documents": [
@@ -1298,6 +1321,24 @@
       "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/200805/t20080519_24574.htm",
       "kind": "应用指南",
       "publisher": "财政部"
+    },
+    {
+      "title": "中国证监会发布上市公司2025年年度财务报告会计监管报告",
+      "url": "https://www.csrc.gov.cn/csrc/c100028/c7652148/content.shtml",
+      "kind": "监管参考",
+      "publisher": "证监会"
+    },
+    {
+      "title": "监管规则适用指引——会计类第1号",
+      "url": "https://www.csrc.gov.cn/csrc/c105942/c1570917/content.shtml",
+      "kind": "监管参考",
+      "publisher": "证监会"
+    },
+    {
+      "title": "监管规则适用指引——会计类第4号",
+      "url": "https://www.csrc.gov.cn/csrc/c100038/c7462932/content.shtml",
+      "kind": "监管参考",
+      "publisher": "证监会"
     }
   ]
 }
