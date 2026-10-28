@@ -1,6 +1,359 @@
 [
   {
     "schema": 2,
+    "checked": "2026-10-28T04:17:28+00:00",
+    "complete": false,
+    "offline": false,
+    "last_success": "2026-10-28T04:07:29+00:00",
+    "scope": "登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖",
+    "sources": [
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/",
+        "ok": true,
+        "articles": 64
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/",
+        "ok": true,
+        "articles": 27
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/index_1.htm",
+        "ok": true,
+        "articles": 0
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/index_2.htm",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/index_1.htm",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/index_2.htm",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://www.csrc.gov.cn/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/",
+        "ok": true,
+        "articles": 5
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wxzczzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sjzykjclsswd/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gfzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/",
+        "ok": true,
+        "articles": 5
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zfbzzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jkwd/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zlzzsswd/",
+        "ok": true,
+        "articles": 9
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xbxhtsswd/",
+        "ok": true,
+        "articles": 9
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/kjzckjgjbgzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cwbblbzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xjllbzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/hbcwbbzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sczxzzsswd/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qtwd/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/xqykjzzsswd/",
+        "ok": true,
+        "articles": 2
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/gfzfyyal/",
+        "ok": true,
+        "articles": 7
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/",
+        "ok": true,
+        "articles": 10
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/",
+        "ok": false
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/sdszzyyal/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/wbzszzyyal/",
+        "ok": true,
+        "articles": 3
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/qyhbzzyyal/",
+        "ok": true,
+        "articles": 1
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/",
+        "ok": true,
+        "articles": 4
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/",
+        "ok": true,
+        "articles": 9
+      }
+    ],
+    "errors": [
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/gongzuotongzhi/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/sjzykjclsswd/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/sjzykjclsswd/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202604/t20260430_3988959.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/gongzuotongzhi/202604/t20260430_3988959.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202607/t20260724_3994229.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/gongzuotongzhi/202607/t20260724_3994229.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202212/t20221212_3857395.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/gongzuotongzhi/202212/t20221212_3857395.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260930_3998445.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/gongzuotongzhi/202609/t20260930_3998445.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/200805/t20080522_33804.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/200805/t20080522_33804.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/201511/t20151113_1559056.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/201511/t20151113_1559056.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/202412/t20241223_3950344.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/202412/t20241223_3950344.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zhengcefabu/202512/t20251218_3979556.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/202512/t20251218_3979556.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46222.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46222.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46246.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46246.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46248.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46248.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170907_2694118.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170907_2694118.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170908_2694655.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/201709/t20170908_2694655.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202201/t20220124_3784577.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202201/t20220124_3784577.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/202108/t20210810_3744014.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/pppkjclyyal/202108/t20210810_3744014.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/qyhbzzyyal/202606/t20260618_3991875.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/qyhbzzyyal/202606/t20260618_3991875.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202106/t20210610_3717388.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/zlzzyyal/202106/t20210610_3717388.htm"
+      },
+      {
+        "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744028.htm",
+        "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744028.htm"
+      }
+    ],
+    "err": "本次检查不完整，请查看来源明细；保留上次成功正文。",
+    "counts": {
+      "checked_documents": 212,
+      "discovered": 230,
+      "library": 230,
+      "added": 0,
+      "changed": 4
+    },
+    "run_url": "https://github.com/pymask/cas-kb/actions/runs/40631453292",
+    "new_std": [],
+    "new_interp": [],
+    "notices": []
+  },
+  {
+    "schema": 2,
     "checked": "2026-10-28T04:07:29+00:00",
     "complete": true,
     "offline": false,
