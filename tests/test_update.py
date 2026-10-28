@@ -3,6 +3,7 @@ from pathlib import Path
 from unittest.mock import patch,Mock
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from upd_status import canonical,extract,ingest,diff,classify,fetch,document,discover
+import requests
 from bs4 import BeautifulSoup
 class UpdateTests(unittest.TestCase):
     def test_url(self):
@@ -30,6 +31,17 @@ class UpdateTests(unittest.TestCase):
         r=Mock(is_redirect=False);r.raise_for_status.side_effect=RuntimeError('404')
         with patch('upd_status.requests.get',return_value=r):
             with self.assertRaises(RuntimeError):fetch('https://kjs.mof.gov.cn/a')
+    def test_http_502_retries_then_succeeds(self):
+        response=Mock(status_code=502)
+        error=requests.HTTPError('502',response=response)
+        with patch('upd_status.fetch_once',side_effect=[error, ('ok','https://kjs.mof.gov.cn/a')]) as attempt, patch('upd_status.time.sleep'):
+            self.assertEqual(fetch('https://kjs.mof.gov.cn/a')[0],'ok')
+            self.assertEqual(attempt.call_count,2)
+    def test_http_404_does_not_retry(self):
+        error=requests.HTTPError('404',response=Mock(status_code=404))
+        with patch('upd_status.fetch_once',side_effect=error) as attempt, patch('upd_status.time.sleep'):
+            with self.assertRaises(requests.HTTPError):fetch('https://kjs.mof.gov.cn/a')
+            self.assertEqual(attempt.call_count,1)
     def test_discover_csrc_homepage_and_publisher(self):
         page='<a href="/csrc/c105942/c7572064/content.shtml">监管规则适用指引——会计类第5号</a><a href="/csrc/c100028/c1/content.shtml">其他新闻</a>'.encode()
         response=Mock(content=page,text=page.decode())
