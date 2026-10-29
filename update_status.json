@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "checked": "2026-10-28T18:50:27+00:00",
-  "complete": true,
+  "checked": "2026-10-29T07:01:45+00:00",
+  "complete": false,
   "offline": false,
   "last_success": "2026-10-28T18:50:27+00:00",
   "scope": "登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖",
@@ -237,16 +237,21 @@
       "articles": 9
     }
   ],
-  "errors": [],
-  "err": null,
+  "errors": [
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46247.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46247.htm"
+    }
+  ],
+  "err": "本次检查不完整，请查看来源明细；保留上次成功正文。",
   "counts": {
-    "checked_documents": 230,
+    "checked_documents": 229,
     "discovered": 230,
     "library": 230,
     "added": 0,
     "changed": 0
   },
-  "run_url": "https://github.com/pymask/cas-kb/actions/runs/40748771010",
+  "run_url": "https://github.com/pymask/cas-kb/actions/runs/40832774843",
   "new_std": [],
   "new_interp": [],
   "notices": []
