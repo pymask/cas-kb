@@ -1,9 +1,9 @@
 {
   "schema": 2,
-  "checked": "2026-11-17T21:45:25+00:00",
-  "complete": false,
+  "checked": "2026-11-18T08:30:10+00:00",
+  "complete": true,
   "offline": false,
-  "last_success": "2026-11-16T22:52:57+00:00",
+  "last_success": "2026-11-18T08:30:10+00:00",
   "scope": "登记栏目、证监会首页重点链接及历史已采集来源；不代表官方资料全量覆盖",
   "sources": [
     {
@@ -54,7 +54,7 @@
     {
       "url": "https://kjs.mof.gov.cn/zhengcejiedu/",
       "ok": true,
-      "articles": 1
+      "articles": 0
     },
     {
       "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_1.htm",
@@ -64,7 +64,7 @@
     {
       "url": "https://kjs.mof.gov.cn/zhengcejiedu/index_2.htm",
       "ok": true,
-      "articles": 0
+      "articles": 1
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/qykjzzjs/",
@@ -103,7 +103,8 @@
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/",
-      "ok": false
+      "ok": true,
+      "articles": 2
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gfzzsswd/",
@@ -236,13 +237,8 @@
       "articles": 9
     }
   ],
-  "errors": [
-    {
-      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/zcjzzzsswd/"
-    }
-  ],
-  "err": "本次检查不完整，请查看来源明细；保留上次成功正文。",
+  "errors": [],
+  "err": null,
   "counts": {
     "checked_documents": 230,
     "discovered": 230,
@@ -250,7 +246,7 @@
     "added": 0,
     "changed": 0
   },
-  "run_url": "https://github.com/pymask/cas-kb/actions/runs/44182978401",
+  "run_url": "https://github.com/pymask/cas-kb/actions/runs/44267462697",
   "new_std": [],
   "new_interp": [],
   "notices": []
