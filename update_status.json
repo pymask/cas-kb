@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "checked": "2026-11-22T20:19:05+00:00",
+  "checked": "2026-11-23T08:58:33+00:00",
   "complete": false,
   "offline": false,
   "last_success": "2026-11-21T20:04:39+00:00",
@@ -113,7 +113,8 @@
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/",
-      "ok": false
+      "ok": true,
+      "articles": 4
     },
     {
       "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/srzzsswd/",
@@ -238,23 +239,43 @@
   ],
   "errors": [
     {
-      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/zwcz/"
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46221.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/kuaijizhunzeshishi/200806/t20080618_46221.htm"
     },
     {
-      "url": "https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628439.htm",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/201706/t20170621_2628439.htm"
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/202301/t20230103_3861813.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/chzzsswd/202301/t20230103_3861813.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202111/t20211102_3762836.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/cqgqtzzzsswd/202111/t20211102_3762836.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/202504/t20250417_3962188.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/gdzczzsswd/202504/t20250417_3962188.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691871.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202104/t20210425_3691871.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994207.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202607/t20260723_3994207.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/202606/t20260618_3991867.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/qyhbzzsswd/202606/t20260618_3991867.htm"
     }
   ],
   "err": "本次检查不完整，请查看来源明细；保留上次成功正文。",
   "counts": {
-    "checked_documents": 229,
+    "checked_documents": 223,
     "discovered": 230,
     "library": 230,
     "added": 0,
     "changed": 0
   },
-  "run_url": "https://github.com/pymask/cas-kb/actions/runs/45065721870",
+  "run_url": "https://github.com/pymask/cas-kb/actions/runs/45142912777",
   "new_std": [],
   "new_interp": [],
   "notices": []
