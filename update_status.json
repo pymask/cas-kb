@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "checked": "2026-11-25T09:49:39+00:00",
+  "checked": "2026-11-25T22:28:53+00:00",
   "complete": false,
   "offline": false,
   "last_success": "2026-11-24T00:49:55+00:00",
@@ -239,27 +239,31 @@
   ],
   "errors": [
     {
-      "url": "https://kjs.mof.gov.cn/zhengcefabu/202512/t20251218_3979556.htm",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/202512/t20251218_3979556.htm"
+      "url": "https://kjs.mof.gov.cn/zhengcefabu/201008/t20100809_332092.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zhengcefabu/201008/t20100809_332092.htm"
     },
     {
-      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892060.htm",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/jrgjzzss/202306/t20230625_3892060.htm"
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202209/t20220913_3839957.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/jrgjzzyy/202209/t20220913_3839957.htm"
     },
     {
-      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/202103/t20210302_3664191.htm",
-      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/wbzs/202103/t20210302_3664191.htm"
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202012/t20201211_3634020.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/srzzzq/srzzyy/202012/t20201211_3634020.htm"
+    },
+    {
+      "url": "https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744029.htm",
+      "error": "502 Server Error: Bad Gateway for url: https://kjs.mof.gov.cn/zt/kjzzss/sswd/pppkjclsswd/202108/t20210810_3744029.htm"
     }
   ],
   "err": "本次检查不完整，请查看来源明细；保留上次成功正文。",
   "counts": {
-    "checked_documents": 227,
+    "checked_documents": 226,
     "discovered": 230,
     "library": 230,
     "added": 0,
     "changed": 0
   },
-  "run_url": "https://github.com/pymask/cas-kb/actions/runs/45589043169",
+  "run_url": "https://github.com/pymask/cas-kb/actions/runs/45713500539",
   "new_std": [],
   "new_interp": [],
   "notices": []
