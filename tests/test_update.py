@@ -2,7 +2,7 @@ import copy,json,tempfile,unittest,sys
 from pathlib import Path
 from unittest.mock import patch,Mock
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from upd_status import canonical,extract,ingest,diff,classify,fetch,document,discover
+from upd_status import canonical,extract,ingest,diff,classify,fetch,collect_documents,discover
 import requests
 from bs4 import BeautifulSoup
 class UpdateTests(unittest.TestCase):
@@ -55,6 +55,50 @@ class UpdateTests(unittest.TestCase):
         with patch('upd_status.fetch',return_value=(response,'https://www.csrc.gov.cn/')):
             found,errors,reports=discover(config,10)
         self.assertTrue(errors);self.assertFalse(reports[0]['ok'])
+
+    def test_discover_recovers_gateway_failure_at_page_limit(self):
+        url = 'https://kjs.mof.gov.cn/standards/'
+        article = url + 't20261126_1234.htm'
+        config = {'keywords': '会计', 'feeds': [
+            {'urls': [url], 'prefix': url, 'kind': '会计准则'},
+        ]}
+        html = f'<a href="{article}">会计准则</a>'
+        response = Mock(content=html.encode(), text=html)
+        gateway_error = requests.HTTPError('502', response=Mock(status_code=502))
+
+        with patch('upd_status.fetch_once', side_effect=[gateway_error] * 4 + [(response, url)]) as fetch_page:
+            with patch('upd_status.time.sleep'):
+                found, errors, reports = discover(config, 1)
+
+        self.assertEqual(fetch_page.call_count, 5)
+        self.assertEqual(list(found), [article])
+        self.assertEqual(errors, [])
+        self.assertEqual(reports, [{'url': url, 'ok': True, 'articles': 1}])
+
+    def test_collect_documents_retries_only_gateway_failures_after_first_pass(self):
+        recovered, unavailable, missing = [f'https://kjs.mof.gov.cn/{name}.htm'
+                                          for name in ('recovered', 'unavailable', 'missing')]
+        attempts = {url: 0 for url in (recovered, unavailable, missing)}
+        html = f'<div class="TRS_Editor">{"会计准则正文" * 10}</div>'
+        response = Mock(content=html.encode(), text=html)
+
+        def get(url):
+            attempts[url] += 1
+            if url == missing:
+                raise requests.HTTPError('404', response=Mock(status_code=404))
+            if url == recovered and attempts[url] == 5:
+                self.assertGreaterEqual(attempts[unavailable], 4)
+                self.assertEqual(attempts[missing], 1)
+                return response, url
+            raise requests.HTTPError('502', response=Mock(status_code=502))
+
+        with patch('upd_status.fetch_once', side_effect=get), patch('upd_status.time.sleep'):
+            docs, errors = collect_documents([{'url': url} for url in attempts], {unavailable})
+
+        self.assertEqual([doc['url'] for doc in docs], [recovered])
+        self.assertCountEqual(errors, [{'url': unavailable, 'error': '502'}, {'url': missing, 'error': '404'}])
+        self.assertEqual(attempts, {recovered: 5, unavailable: 5, missing: 1})
+
     def test_attachment_change_in_diff(self):
         d={'text':'正文','attachments':[{'text':'旧附件'}]};n=copy.deepcopy(d);n['attachments'][0]['text']='新附件'
         self.assertEqual(diff(d,n)[0]['after'],['新附件'])
