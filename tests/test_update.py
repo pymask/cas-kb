@@ -66,11 +66,11 @@ class UpdateTests(unittest.TestCase):
         response = Mock(content=html.encode(), text=html)
         gateway_error = requests.HTTPError('502', response=Mock(status_code=502))
 
-        with patch('upd_status.fetch_once', side_effect=[gateway_error] * 4 + [(response, url)]) as fetch_page:
+        with patch('upd_status.fetch_once', side_effect=[gateway_error] * 5 + [(response, url)]) as fetch_page:
             with patch('upd_status.time.sleep'):
                 found, errors, reports = discover(config, 1)
 
-        self.assertEqual(fetch_page.call_count, 5)
+        self.assertEqual(fetch_page.call_count, 6)
         self.assertEqual(list(found), [article])
         self.assertEqual(errors, [])
         self.assertEqual(reports, [{'url': url, 'ok': True, 'articles': 1}])
@@ -86,7 +86,7 @@ class UpdateTests(unittest.TestCase):
             attempts[url] += 1
             if url == missing:
                 raise requests.HTTPError('404', response=Mock(status_code=404))
-            if url == recovered and attempts[url] == 5:
+            if url == recovered and attempts[url] == 6:
                 self.assertGreaterEqual(attempts[unavailable], 4)
                 self.assertEqual(attempts[missing], 1)
                 return response, url
@@ -97,7 +97,18 @@ class UpdateTests(unittest.TestCase):
 
         self.assertEqual([doc['url'] for doc in docs], [recovered])
         self.assertCountEqual(errors, [{'url': unavailable, 'error': '502'}, {'url': missing, 'error': '404'}])
-        self.assertEqual(attempts, {recovered: 5, unavailable: 5, missing: 1})
+        self.assertEqual(attempts, {recovered: 6, unavailable: 8, missing: 1})
+
+    def test_collect_documents_preserves_error_when_recovery_budget_runs_out(self):
+        url = 'https://kjs.mof.gov.cn/a.htm'
+        error = requests.HTTPError('502', response=Mock(status_code=502))
+        with (patch('upd_status.fetch_once', side_effect=error) as fetch_page,
+              patch('upd_status.time.sleep'), patch('upd_status.time.monotonic', side_effect=[0, 100])):
+            docs, errors = collect_documents([{'url': url}], {url})
+
+        self.assertEqual(fetch_page.call_count, 4)
+        self.assertEqual(docs, [])
+        self.assertEqual(errors, [{'url': url, 'error': '502'}])
 
     def test_attachment_change_in_diff(self):
         d={'text':'正文','attachments':[{'text':'旧附件'}]};n=copy.deepcopy(d);n['attachments'][0]['text']='新附件'

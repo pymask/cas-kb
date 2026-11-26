@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 HOSTS={'kjs.mof.gov.cn','www.mof.gov.cn','tfs.mof.gov.cn','www.csrc.gov.cn'}
 SELECTORS='.TRS_Editor, .my_doccontent, .Custom_UnionStyle, #ContentRegion, .content-detail, .detail-news'
 GATEWAY_RECOVERY_DELAY = 10
+GATEWAY_RECOVERY_BUDGET = 90
 
 def canonical(url):
     p=urlsplit(url)
@@ -87,8 +88,8 @@ def classify(title, fallback):
         if key in title:return kind
     return fallback
 
-def document(item, *, fetch_page=fetch):
-    r,url=fetch_page(item['url']);soup=html(r)
+def document(item):
+    r,url=fetch(item['url']);soup=html(r)
     attachment_links={u:t for u,t in links(soup,url).items() if re.search(r'\.(pdf|docx?|xlsx?)(?:\?|$)',u,re.I)}
     text=extract(soup,allow_short=bool(attachment_links))
     title=soup.find('meta',attrs={'name':'ArticleTitle'})
@@ -150,24 +151,28 @@ def ingest(root,docs,now):
 def discover(config,max_pages):
     queue=[(u,s,0) for s in config['feeds'] for u in s['urls']];visited=set();found={};errors=[];reports=[]
     deferred = []
-    recovery_started = False
+    recovery_deadline = None
     while queue or deferred:
         retrying = not queue or len(visited) >= max_pages
         if retrying:
             if not deferred:
                 break
-            if not recovery_started:
+            if recovery_deadline is None:
                 print(f'补查返回 HTTP 502 的栏目（当前 {len(deferred)} 个）', flush=True)
                 time.sleep(GATEWAY_RECOVERY_DELAY)
-                recovery_started = True
-            url, source, depth = deferred.pop(0)
+                recovery_deadline = time.monotonic() + GATEWAY_RECOVERY_BUDGET
+            url, source, depth, first_error = deferred.pop(0)
+            if time.monotonic() >= recovery_deadline:
+                errors.append(first_error)
+                reports.append({'url': url, 'ok': False})
+                continue
         else:
             url, source, depth = queue.pop(0)
             if url in visited:
                 continue
             visited.add(url)
         try:
-            r, actual = fetch_once(url) if retrying else fetch(url)
+            r, actual = fetch(url)
             ls=links(html(r),actual);count=0;recognized=0
             for u,title in ls.items():
                 if re.search(source.get('article_pattern',r'/t\d{8}_\d+\.htm'),u):
@@ -179,10 +184,11 @@ def discover(config,max_pages):
             if not recognized and not any(u.startswith(source['prefix']) and u.endswith('/') for u in ls):raise ValueError('栏目结构异常或无可识别条目')
             reports.append({'url':url,'ok':True,'articles':count})
         except Exception as error:
+            report = {'url': url, 'error': str(error)[:240]}
             if not retrying and is_bad_gateway(error):
-                deferred.append((url, source, depth))
+                deferred.append((url, source, depth, report))
                 continue
-            errors.append({'url': url, 'error': str(error)[:240]})
+            errors.append(report)
             reports.append({'url': url, 'ok': False})
     if queue:errors.append({'url':'discovery','error':'达到栏目抓取上限；未遍历栏目不声明已检查'})
     return found,errors,reports
@@ -206,20 +212,25 @@ def collect_documents(items, existing):
             try:
                 doc = future.result()
             except Exception as error:
+                report = {'url': item['url'], 'error': str(error)[:240]}
                 if is_bad_gateway(error):
-                    deferred.append(item)
+                    deferred.append((item, report))
                 else:
-                    errors.append({'url': item['url'], 'error': str(error)[:240]})
+                    errors.append(report)
             else:
                 record(doc)
 
     if deferred:
         print(f'串行补查返回 HTTP 502 的正文（{len(deferred)} 份）', flush=True)
         time.sleep(GATEWAY_RECOVERY_DELAY)
-    # Retry gateway failures once, without other document downloads running in parallel.
-    for item in deferred:
+    recovery_deadline = time.monotonic() + GATEWAY_RECOVERY_BUDGET
+    # Give each failed URL a fresh set of retries once the parallel downloads finish.
+    for item, first_error in deferred:
+        if time.monotonic() >= recovery_deadline:
+            errors.append(first_error)
+            continue
         try:
-            doc = document(item, fetch_page=fetch_once)
+            doc = document(item)
         except Exception as error:
             errors.append({'url': item['url'], 'error': str(error)[:240]})
         else:
