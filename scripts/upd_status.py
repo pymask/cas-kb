@@ -9,6 +9,8 @@ from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
 HOSTS={'kjs.mof.gov.cn','www.mof.gov.cn','tfs.mof.gov.cn','www.csrc.gov.cn'}
 SELECTORS='.TRS_Editor, .my_doccontent, .Custom_UnionStyle, #ContentRegion, .content-detail, .detail-news'
+GATEWAY_RECOVERY_DELAY = 10
+GATEWAY_RECOVERY_BUDGET = 90
 
 def canonical(url):
     p=urlsplit(url)
@@ -37,6 +39,10 @@ def fetch(url):
                 if status != 429 and not 500 <= status <= 599:raise
             if attempt==3:raise
             time.sleep(2 * (attempt+1))
+
+def is_bad_gateway(error):
+    return (isinstance(error, requests.HTTPError) and error.response is not None
+            and error.response.status_code == 502)
 
 def word_text(data,ext):
     if ext=='.docx':
@@ -144,12 +150,30 @@ def ingest(root,docs,now):
 
 def discover(config,max_pages):
     queue=[(u,s,0) for s in config['feeds'] for u in s['urls']];visited=set();found={};errors=[];reports=[]
-    while queue and len(visited)<max_pages:
-        url,source,depth=queue.pop(0)
-        if url in visited:continue
-        visited.add(url)
+    deferred = []
+    recovery_deadline = None
+    while queue or deferred:
+        retrying = not queue or len(visited) >= max_pages
+        if retrying:
+            if not deferred:
+                break
+            if recovery_deadline is None:
+                print(f'补查返回 HTTP 502 的栏目（当前 {len(deferred)} 个）', flush=True)
+                time.sleep(GATEWAY_RECOVERY_DELAY)
+                recovery_deadline = time.monotonic() + GATEWAY_RECOVERY_BUDGET
+            url, source, depth, first_error = deferred.pop(0)
+            if time.monotonic() >= recovery_deadline:
+                errors.append(first_error)
+                reports.append({'url': url, 'ok': False})
+                continue
+        else:
+            url, source, depth = queue.pop(0)
+            if url in visited:
+                continue
+            visited.add(url)
         try:
-            r,actual=fetch(url);ls=links(html(r),actual);count=0;recognized=0
+            r, actual = fetch(url)
+            ls=links(html(r),actual);count=0;recognized=0
             for u,title in ls.items():
                 if re.search(source.get('article_pattern',r'/t\d{8}_\d+\.htm'),u):
                     recognized+=1
@@ -159,9 +183,59 @@ def discover(config,max_pages):
                     queue.append((u,source,depth+1))
             if not recognized and not any(u.startswith(source['prefix']) and u.endswith('/') for u in ls):raise ValueError('栏目结构异常或无可识别条目')
             reports.append({'url':url,'ok':True,'articles':count})
-        except Exception as e:errors.append({'url':url,'error':str(e)[:240]});reports.append({'url':url,'ok':False})
+        except Exception as error:
+            report = {'url': url, 'error': str(error)[:240]}
+            if not retrying and is_bad_gateway(error):
+                deferred.append((url, source, depth, report))
+                continue
+            errors.append(report)
+            reports.append({'url': url, 'ok': False})
     if queue:errors.append({'url':'discovery','error':'达到栏目抓取上限；未遍历栏目不声明已检查'})
     return found,errors,reports
+
+def collect_documents(items, existing):
+    docs = []
+    errors = []
+    deferred = []
+
+    def record(doc):
+        failed = [a for a in doc['attachments'] if a['status'] != 'extracted']
+        if not failed or doc['url'] not in existing:
+            docs.append(doc)
+        for attachment in failed:
+            errors.append({'url': attachment['url'], 'error': attachment.get('error', '附件待提取')})
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        futures = {pool.submit(document, item): item for item in items}
+        for future in concurrent.futures.as_completed(futures):
+            item = futures[future]
+            try:
+                doc = future.result()
+            except Exception as error:
+                report = {'url': item['url'], 'error': str(error)[:240]}
+                if is_bad_gateway(error):
+                    deferred.append((item, report))
+                else:
+                    errors.append(report)
+            else:
+                record(doc)
+
+    if deferred:
+        print(f'串行补查返回 HTTP 502 的正文（{len(deferred)} 份）', flush=True)
+        time.sleep(GATEWAY_RECOVERY_DELAY)
+    recovery_deadline = time.monotonic() + GATEWAY_RECOVERY_BUDGET
+    # Give each failed URL a fresh set of retries once the parallel downloads finish.
+    for item, first_error in deferred:
+        if time.monotonic() >= recovery_deadline:
+            errors.append(first_error)
+            continue
+        try:
+            doc = document(item)
+        except Exception as error:
+            errors.append({'url': item['url'], 'error': str(error)[:240]})
+        else:
+            record(doc)
+    return docs, errors
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--offline',action='store_true');ap.add_argument('--seeds-only',action='store_true');ap.add_argument('--max-pages',type=int,default=80);ap.add_argument('--max-docs',type=int,default=500);args=ap.parse_args()
@@ -176,18 +250,9 @@ def main():
         for item in json.loads(lib.read_text()):found.setdefault(item['url'],item)
     items=sorted(found.values(),key=lambda x:x['url'])
     if len(items)>args.max_docs:errors.append({'url':'documents','error':'达到正文抓取上限，本次检查不完整'})
-    docs=[]
     existing={x['url']:x for x in json.loads(lib.read_text())} if lib.exists() else {}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        futures={pool.submit(document,x):x for x in items[:args.max_docs]}
-        for f in concurrent.futures.as_completed(futures):
-            try:
-                d=f.result()
-                failed=any(a['status']!='extracted' for a in d['attachments'])
-                if not (failed and d['url'] in existing):docs.append(d)
-                for a in d['attachments']:
-                    if a['status']!='extracted':errors.append({'url':a['url'],'error':a.get('error','附件待提取')})
-            except Exception as e:errors.append({'url':futures[f]['url'],'error':str(e)[:240]})
+    docs, document_errors = collect_documents(items[:args.max_docs], existing)
+    errors.extend(document_errors)
     events,total=ingest(ROOT,docs,now)
     previous=json.loads((ROOT/'update_status.json').read_text())
     complete=not errors and not args.seeds_only
@@ -198,5 +263,7 @@ def main():
     cp=ROOT/'data/checks.json';checks=json.loads(cp.read_text()) if cp.exists() else []
     save(cp,([status]+checks)[:180])
     print(json.dumps(status['counts'],ensure_ascii=False));print('errors',len(errors))
+    for error in errors:
+        print(f"{error['url']}: {error['error']}")
     if errors:raise SystemExit(2)
 if __name__=='__main__':main()
